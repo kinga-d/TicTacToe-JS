@@ -1,3 +1,52 @@
-﻿body
-{
+﻿*, *::after, *::before{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
+
+body
+{
+	font-family:'Comic Sans MS';
+	font-style: italic;
+}
+
+.wrapper {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.board {
+	display: grid;
+	grid-gap: 5px;
+	padding:5px;
+	grid-template-columns: repeat(3, 100px);
+	grid-template-rows: repeat(3, 100px);
+	background-color: thistle;
+}
+
+.cell {
+	background-color: azure;
+	cursor: pointer;
+}
+
+.cell:hover {
+	background-color:  aliceblue;
+}
+
+#restartButton {
+	margin-top: 20px;
+	padding: 5px 10px;
+	background-color: thistle;
+	border: 1px solid thistle;
+	font: bold 18px 'Comic Sans MS';
+	color: azure;
+	border: 4px solid thistle;
+}
+
+	#restartButton:hover {
+		background-color: azure;
+		color: thistle;
+		cursor: pointer;
+	}
