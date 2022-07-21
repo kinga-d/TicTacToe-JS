@@ -36,6 +36,19 @@ body
 	background-color:  aliceblue;
 }
 
+
+.cell--filled-O::before {
+	position: absolute;
+	content: '';
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	border: 12px solid palevioletred;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .cell--filled-X::after {
 	position: absolute;
 	content: '';

@@ -1,11 +1,18 @@
 // JavaScript source code
 
-const fields = document.querySelectorAll(".cell");
+const fieldsElements = document.querySelectorAll(".cell");
+
+const fields = ['', '', '', '', '', '', '', '', ''];
 
 let activePlayer = 'X';
 
-fields.forEach(field => {
+fieldsElements.forEach(field => {
     field.addEventListener("click", e => {
+
+        const { pos } = e.target.dataset;
+        if (fields[pos] === '') { 
+            fields[pos] = activePlayer;
         e.target.classList.add(`cell--filled-${activePlayer}`); //template string with `
+        activePlayer = activePlayer === 'X' ? 'O' : 'X';}
     });
 });
