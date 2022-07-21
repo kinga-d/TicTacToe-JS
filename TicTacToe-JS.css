@@ -29,10 +29,35 @@ body
 .cell {
 	background-color: azure;
 	cursor: pointer;
+	position: relative;
 }
 
 .cell:hover {
 	background-color:  aliceblue;
+}
+
+.cell--filled-X::after {
+	position: absolute;
+	content: '';
+	height: 12px;
+	border-radius: 5px;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%) rotate(-45deg);
+	background-color:  palevioletred;
+}
+
+.cell--filled-X::before {
+	position: absolute;
+	content: '';
+	height: 12px;
+	width: 100%;
+	border-radius: 5px;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%) rotate(45deg);
+	background-color: palevioletred;
 }
 
 #restartButton {
