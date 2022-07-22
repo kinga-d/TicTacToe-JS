@@ -4,10 +4,20 @@ const fieldsElements = document.querySelectorAll(".cell");
 
 const panel = document.querySelector('.panel');
 
-const fields = ['', '', '', '', '', '', '', '', ''];
+const button = document.querySelector('#restartButton');
 
-let activePlayer = 'X';
-let gameActive = true;
+let fields;
+let activePlayer;
+let gameActive;
+
+const setDefaults = () => {
+    fields = ['', '', '', '', '', '', '', '', '']
+    activePlayer = 'X';
+    gameActive = true;
+}
+
+setDefaults();
+
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -22,6 +32,10 @@ const displayWinMessage = () => {
     panel.innerText = `GRATULACJE ${activePlayer},\n WYGRAŁEŚ!!!`;
 }
 
+const clearMessage = () => {
+    panel.innerText = '';
+}
+
 const validateGame = () => {  //funkcja strzałkowa
     for (let i = 0; i <= 7; i++) {
         const [posA, posB, posC] = winningConditions[i];
@@ -29,9 +43,9 @@ const validateGame = () => {  //funkcja strzałkowa
         const value2 = fields[posB];
         const value3 = fields[posC];
         if (value1 !== "" && value1 === value2 && value1 === value3) {
-            displayWinMessage();
             gameActive = false;
-            
+            displayWinMessage();
+ 
         }
     }
 }
@@ -47,3 +61,13 @@ fieldsElements.forEach(field => {
         activePlayer = activePlayer === 'X' ? 'O' : 'X';}
     });
 });
+
+const handleButtonClick = () => {
+    setDefaults();
+    fieldsElements.forEach(field => {
+        field.classList.remove("cell--filled-X", "cell--filled-O");
+    })
+    clearMessage();
+}
+
+button.addEventListener('click', handleButtonClick);
