@@ -17,6 +17,16 @@ body
 	align-items:center;
 }
 
+.panel {
+	margin-bottom: 50px;
+	height: 50px;
+	font-size: 30px;
+	font-family: Arial Black;
+	font-style: normal;
+	text-align: center;
+	color: #e8638e;
+}
+
 .board {
 	display: grid;
 	grid-gap: 5px;
